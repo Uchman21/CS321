@@ -62,7 +62,7 @@ if len(sys.argv) == 3:
         checkpoint = str(sys.argv[2])
 
 # data = pd.read_csv("labeledTrainData.tsv", header=0, delimiter="\t", quoting=3)
-data = pd.read_csv("{}.csv".format(str(sys.argv[1])), header=0, delimiter="\t", quoting=3, usecols=[0,3,4])
+data = pd.read_csv("Files/{}.csv".format(str(sys.argv[1])), header=0, delimiter="\t", quoting=3, usecols=[0,3,4])
 txt = ''
 docs = []
 sentences = []
@@ -172,7 +172,7 @@ for train_index, test_index in sss.split(X, y):
 
     encoder = Model(inputs=in_sentence, outputs=sent_encode)
     encoder.summary()
-    # plot_model(encoder, to_file='enoder.png')
+    # plot_model(encoder, to_file='Images/enoder.png')
     # exit()
 
     encoded = TimeDistributed(encoder)(document)
@@ -188,7 +188,7 @@ for train_index, test_index in sss.split(X, y):
     model = Model(outputs=output, inputs=document)
 
     model.summary()
-    # plot_model(model, to_file='model2.png')
+    # plot_model(model, to_file='Images/model2.png')
 
     if checkpoint:
         model.load_weights(checkpoint)
