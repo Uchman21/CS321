@@ -1,0 +1,40 @@
+Using TensorFlow backend.
+QXcbConnection: XCB error: 148 (Unknown), sequence: 171, resource id: 0, major code: 140 (Unknown), minor code: 20
+485
+(5191,)
+Evaluating LG Algorithm ===>
+Finished evaluating LG Algorithm
+<====== Results ======>
+Precicion = 0.78686335881 , Recall = 0.810309278351, F1-Score = 0.797411006018, Accuracy = 0.961472699591, AUC = 0.969148071872
+<==== Best Configuration ====>
+(0, 0, 0)
+Evaluating Conv Algorithm ===>
+Finished evaluating Conv Algorithm
+<====== Results ======>
+Precicion = 0.804063042723 , Recall = 0.835051546392, F1-Score = 0.818240467074, Accuracy = 0.965326078692, AUC = 0.98158670766
+<==== Best Configuration ====>
+(173, 68, 0.004045128373417931)
+Evaluating FW Algorithm ===>
+Finished evaluating FW Algorithm
+<====== Results ======>
+Precicion = 0.811895699854 , Recall = 0.855670103093, F1-Score = 0.831638113868, Accuracy = 0.967637475637, AUC = 0.98309623512
+<==== Best Configuration ====>
+(169, 51, 0.006111032223644616)
+Evaluating LSVM Algorithm ===>
+Finished evaluating LSVM Algorithm
+<====== Results ======>
+Precicion = 0.752523368773 , Recall = 0.828865979381, F1-Score = 0.787955944079, Accuracy = 0.958198282401, AUC = 0.970319269403
+<==== Best Configuration ====>
+(0, 0, 0)
+Evaluating GNB Algorithm ===>
+Finished evaluating GNB Algorithm
+<====== Results ======>
+Precicion = 0.432320250189 , Recall = 0.901030927835, F1-Score = 0.583914280628, Accuracy = 0.879983903301, AUC = 0.955460167247
+<==== Best Configuration ====>
+(0, 0, 0)
+Evaluating DT Algorithm ===>
+Finished evaluating DT Algorithm
+<====== Results ======>
+Precicion = 0.746988310487 , Recall = 0.767010309278, F1-Score = 0.755749855886, Accuracy = 0.95357419039, AUC = 0.873861800296
+<==== Best Configuration ====>
+(0, 0, 0)

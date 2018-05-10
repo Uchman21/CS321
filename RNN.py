@@ -181,7 +181,8 @@ for train_index, test_index in sss.split(X, y):
   encoded = TimeDistributed(encoder)(document)
   # encoded: sentences to bi-lstm for document encoding 
   b_lstm_doc = \
-      Bidirectional(LSTM(64, return_sequences=False, dropout=0.15, recurrent_dropout=0.15, implementation=0))(encoded)
+      Bidirectional(LSTM(64, return_sequences=Fals
+e, dropout=0.15, recurrent_dropout=0.15, implementation=0))(encoded)
 
   output = Dropout(0.3)(b_lstm_doc)
   output = Dense(64, activation='relu')(output)
