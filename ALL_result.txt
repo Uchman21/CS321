@@ -1,40 +1,54 @@
 Using TensorFlow backend.
-QXcbConnection: XCB error: 148 (Unknown), sequence: 171, resource id: 0, major code: 140 (Unknown), minor code: 20
-1618
-(19477,)
+579
+(5826,)
 Evaluating LG Algorithm ===>
 Finished evaluating LG Algorithm
 <====== Results ======>
-Precicion = 0.778441801551 , Recall = 0.737940985361, F1-Score = 0.757539396945, Accuracy = 0.960774118414, AUC = 0.96232254068
+Precicion = 0.771944166789 , Recall = 0.778965517241, F1-Score = 0.77502548767, Accuracy = 0.955028071057, AUC = 0.962159110422
 <==== Best Configuration ====>
 (0, 0, 0)
 Evaluating Conv Algorithm ===>
-Finished evaluating Conv Algorithm
-<====== Results ======>
-Precicion = 0.832051534198 , Recall = 0.791707755227, F1-Score = 0.811281514239, Accuracy = 0.969399758832, AUC = 0.98316245268
-<==== Best Configuration ====>
-(192, 53, 0.002124465672966014)
-Evaluating FW Algorithm ===>
-Finished evaluating FW Algorithm
-<====== Results ======>
-Precicion = 0.85956802455 , Recall = 0.870859610901, F1-Score = 0.863646992955, Accuracy = 0.977152973012, AUC = 0.992787426983
-<==== Best Configuration ====>
-(197, 62, 0.006565472840480301)
-Evaluating LSVM Algorithm ===>
-Finished evaluating LSVM Algorithm
-<====== Results ======>
-Precicion = 0.763575577667 , Recall = 0.758943928449, F1-Score = 0.761182831492, Accuracy = 0.960466044302, AUC = 0.962838269946
-<==== Best Configuration ====>
-(0, 0, 0)
-Evaluating GNB Algorithm ===>
-Finished evaluating GNB Algorithm
-<====== Results ======>
-Precicion = 0.4234132208 , Recall = 0.862187058059, F1-Score = 0.567825697288, Accuracy = 0.890947916406, AUC = 0.94544350273
-<==== Best Configuration ====>
-(0, 0, 0)
-Evaluating DT Algorithm ===>
-Finished evaluating DT Algorithm
-<====== Results ======>
-Precicion = 0.758940123961 , Recall = 0.766957153232, F1-Score = 0.762450836422, Accuracy = 0.960414498672, AUC = 0.874515671815
-<==== Best Configuration ====>
-(0, 0, 0)
+Traceback (most recent call last):
+  File "Defdet.py", line 480, in <module>
+    main()
+  File "Defdet.py", line 368, in main
+    classifiers[classifier].fit(X_train, y_train, X_test, y_test)
+  File "Defdet.py", line 113, in fit
+    callbacks=[self.check_cb, self.earlystop_cb])
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/keras/models.py", line 963, in fit
+    validation_steps=validation_steps)
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/keras/engine/training.py", line 1682, in fit
+    self._make_train_function()
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/keras/engine/training.py", line 990, in _make_train_function
+    loss=self.total_loss)
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/keras/legacy/interfaces.py", line 91, in wrapper
+    return func(*args, **kwargs)
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/keras/optimizers.py", line 445, in get_updates
+    grads = self.get_gradients(loss, params)
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/keras/optimizers.py", line 78, in get_gradients
+    grads = K.gradients(loss, params)
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/keras/backend/tensorflow_backend.py", line 2515, in gradients
+    return tf.gradients(loss, variables, colocate_gradients_with_ops=True)
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/tensorflow/python/ops/gradients_impl.py", line 581, in gradients
+    grad_scope, op, func_call, lambda: grad_fn(op, *out_grads))
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/tensorflow/python/ops/gradients_impl.py", line 353, in _MaybeCompile
+    return grad_fn()  # Exit early
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/tensorflow/python/ops/gradients_impl.py", line 581, in <lambda>
+    grad_scope, op, func_call, lambda: grad_fn(op, *out_grads))
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/tensorflow/python/ops/math_grad.py", line 98, in _MeanGrad
+    sum_grad = _SumGrad(op, grad)[0]
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/tensorflow/python/ops/math_grad.py", line 60, in _SumGrad
+    output_shape_kept_dims = math_ops.reduced_shape(input_shape, op.inputs[1])
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/tensorflow/python/ops/math_ops.py", line 2357, in reduced_shape
+    input_rank = array_ops.size(input_shape)  # 4
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/tensorflow/python/ops/array_ops.py", line 325, in size
+    return size_internal(input, name, optimize=True, out_type=out_type)
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/tensorflow/python/ops/array_ops.py", line 351, in size_internal
+    return constant(input_shape.num_elements(), out_type, name=name)
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/tensorflow/python/framework/constant_op.py", line 205, in constant
+    tensor_value = attr_value_pb2.AttrValue()
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/google/protobuf/internal/python_message.py", line 482, in init
+    self._listener_for_children = _Listener(self)
+  File "/home/akujuou/anaconda2/lib/python2.7/site-packages/google/protobuf/internal/python_message.py", line 1387, in __init__
+    self._parent_message_weakref = weakref.proxy(parent_message)
+KeyboardInterrupt

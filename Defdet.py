@@ -82,7 +82,7 @@ class conv_nn ():
 		self.model.add(MaxPooling1D(pool_size=2))
 		self.model.add(Dropout(0.25))
 		self.model.add(Flatten())
-		self.model.add(Dense(100, activation='relu'))
+		self.model.add(Dense(35, activation='relu'))
 		self.model.add(Dense(n_classes, activation='softmax'))
 
 		self.check_cb = keras.callbacks.ModelCheckpoint('checkpoints/' + self.id + '.hdf5',
@@ -144,6 +144,7 @@ class fw_nn ():
 		# self.model.compile(loss=keras.losses.categorical_crossentropy,
   #             optimizer=keras.optimizers.SGD(lr=0.01),
   #             metrics=['accuracy'])
+
 
 
 	def fit(self,train_x,train_y, test_x, test_y):
@@ -272,7 +273,7 @@ def main():
 	candidate_list = []
 	all_candidates = []
 	labels = []
-	with open('Files/medstract_bioc_gold', 'rb') as infile:
+	with open('Files/new/RELAXED_medstract_bioc_gold', 'rb') as infile:
 		dataset = cp.load(infile)
 		for x in dataset: 
 			all_candidates.extend(x[3:])
@@ -286,7 +287,7 @@ def main():
 	# plot_bar_x(cor)
 	# exit()
 	#X = Normalizer().fit_transform(X)
-	#X = MinMaxScaler().fit_transform(X)
+	X = MinMaxScaler().fit_transform(X)
 	X = X[:,np.arange(cor.shape[0])[np.where(abs(cor) >=0.15 )]]
 
 	print(Y.sum())
@@ -298,7 +299,7 @@ def main():
 	sss = StratifiedKFold(n_splits=n_split, random_state=0)
 	# sss = KFold(n_splits=n_split, random_state=0)
 
-	classifiers = {"LG": LogisticRegression(), "GNB": GaussianNB(), "LSVM": LinearSVC(), "DT": DecisionTreeClassifier()}#, "Conv": conv_nn(), "FW": fw_nn()}# "Conv": conv_nn()}#, "Simple_NN": simple_NN ()}
+	classifiers = {"LG": LogisticRegression(), "GNB": GaussianNB(), "LSVM": LinearSVC(), "DT": DecisionTreeClassifier(), "Conv": conv_nn(), "FW": fw_nn()}# "Conv": conv_nn()}#, "Simple_NN": simple_NN ()}
 	cv_split = [[train_index, test_index] for train_index, test_index in sss.split(X, Y)]
 	fpr_arr, tpr_arr, roc_auc, pre_arr, rec_arr = dict(), dict(), dict(), dict(), dict()
 	best_fpr, best_tpr, best_auc, best_auc_std, best_pr, best_rec, best_ag = dict(), dict(), dict(), dict(), dict(), dict(), dict()
@@ -307,7 +308,7 @@ def main():
 
 		if classifier == "FW" or classifier == "Conv":
 			if nn_search == True:
-				learning_rate, number_of_hidden_unit_lone, number_of_hidden_unit_ltwo = generate_random_hyperparams(-3, -2, 150, 200, 50, 100)
+				learning_rate, number_of_hidden_unit_lone, number_of_hidden_unit_ltwo = generate_random_hyperparams(-3, -2, 80, 150, 20, 70)
 				NN_search_iter = 10
 			else:
 				learning_rate, number_of_hidden_unit_lone, number_of_hidden_unit_ltwo = (94, 50, 0.0014782065507749993)
