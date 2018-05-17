@@ -35,6 +35,13 @@ acronyms.py
 Required packages:
 nltk
 operator
+bioc
+numpy
+Bio 
+string
+jellyfish
+sklearn
+pickle
 
 Rest:
 
@@ -54,8 +61,31 @@ to run 5-fold CV testing decision trees methods.
 
 Long form detection
 
-Method #1 - simple rules, call function:
-long_form_detection()
 
-Method #2 - naive NLP, call function
-long_form_detection_tagging()
+1. Long form detection
+
+Candidates and features generation from a given set:
+
+LF_DL( datasets )
+
+For details - look on comments in the code
+
+
+
+2. Supporting methods with low-performance results
+
+Acronym detection using Decision Trees:
+
+decition_tree_accronym(datasets)
+
+
+
+Long Form identification: 
+
+Method #1 - simple rules based method, call function: long_form_detection( datasets )
+
+Method #2 - naive NLP, call function long_form_detection_tagging( datasets )
+
+Where datasets argument is a name(string) of datafile sets in BioC format, 
+eg. 
+datasets = ["medstract_bioc_gold.xml", "Ab3P_bioc_gold.xml", "bioadi_bioc_gold.xml", "SH_bioc_gold.xml"]
